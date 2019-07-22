@@ -66,3 +66,6 @@ gem 'devise'
 
 # Devise Inviables
 gem 'devise_invitable'
+
+# Pry Gem
+gem 'pry'
