@@ -4,4 +4,6 @@ class User < ApplicationRecord
   # :registerable
   devise :invitable, :database_authenticatable,:registerable,
          :recoverable, :rememberable, :validatable, :confirmable
+
+  acts_as_paranoid
 end

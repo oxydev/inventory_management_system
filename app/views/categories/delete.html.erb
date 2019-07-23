@@ -1,0 +1,17 @@
+<%= link_to("<< Back to List", categories_path, :class => 'back-link') %>
+
+
+  <h2>Delete Category</h2>
+
+  <%= form_for(@category, :method => 'delete') do |f| %>
+
+    <p>Are you sure you want to delete this category?</p>
+
+    <p class="reference-name"><%= f.object.category %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Project") %>
+    </div>
+    
+  <% end %>
+  </div>
