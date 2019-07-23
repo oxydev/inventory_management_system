@@ -6,8 +6,7 @@ Rails.application.routes.draw do
     root to: "home#dashboard", as: :authenticated_root
   end
   
-  root to: "home#index"
-
+  
   resources :categories do
     member do
       get :delete
@@ -19,4 +18,7 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+  
+  root to: "home#index"
+
 end
