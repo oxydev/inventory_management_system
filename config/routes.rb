@@ -7,4 +7,11 @@ Rails.application.routes.draw do
   end
   
   root to: "home#index"
+
+  resources :categories do
+    member do
+      get :delete
+    end
+  end
+  
 end
