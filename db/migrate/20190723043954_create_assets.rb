@@ -5,7 +5,7 @@ class CreateAssets < ActiveRecord::Migration[5.2]
       t.string :asset_code
       t.integer :category_id
       t.integer :user_id
-      t.datetime :date_of_purchase
+      t.date :date_of_purchase
       t.timestamps
     end
     add_index("assets", "category_id")

@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_07_23_043954) do
     t.string "asset_code"
     t.integer "category_id"
     t.integer "user_id"
-    t.datetime "date_of_purchase"
+    t.date "date_of_purchase"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_assets_on_category_id"

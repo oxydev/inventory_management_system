@@ -1,0 +1,27 @@
+<h2>Asset Index</h2>
+
+<%=link_to("Add", new_asset_path)%>
+<table>
+  <tr class="header">
+    <th> # </th>
+    <th> Asset Name </th>
+    <th> Date of Purchase </th>
+    <th> Asset Code </th>
+    <th> Actions </th>
+  </tr>
+  
+  <% @assets.each do |asset| %>
+  <tr>
+    <td> <%= asset.id %> </td>
+    <td> <%= asset.asset_name %> </td>
+    <td> <%= asset.date_of_purchase%> </td>
+    <td> <%= asset.asset_code %>
+
+    <td>
+      <%= link_to("Show", "#") %>
+      <%= link_to("Edit", "#") %>
+      <%= link_to("Delete", "#") %>
+    </td>
+  </tr>
+  <% end %>
+</table>
