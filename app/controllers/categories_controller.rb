@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :admin
 
   def index
     @categories = Category.all
@@ -53,4 +53,9 @@ class CategoriesController < ApplicationController
     params.require(:category).permit(:category)
   end
 
+  def admin
+    if !current_user.admin
+      redirect_to :controller => 'home', :action => 'dashboard'
+    end
+  end
 end
