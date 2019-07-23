@@ -69,3 +69,12 @@ gem 'devise_invitable'
 
 # Pry Gem
 gem 'pry'
+
+# Paranoia Gem for soft Delete
+gem "paranoia", "~> 2.2"
+
+# Bootstrap Gem
+gem 'bootstrap'
+
+# Jquery Gem for Bootstrap 
+gem 'jquery-rails'
