@@ -1,0 +1,17 @@
+<div class = "container">
+  <h1>Category add</h1>
+  <%=link_to "Get back","#"%>
+  <%= form_for(@category) do |f| %>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <td><%= f.text_field(:category) %></td>
+    </tr>
+  </table>
+
+  <div class="form-buttons">
+    <%= f.submit("Create Project") %>
+  </div>
+  <% end %>
+</div>
