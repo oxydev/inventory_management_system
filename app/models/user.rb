@@ -7,5 +7,5 @@ class User < ApplicationRecord
 
   acts_as_paranoid
 
-  has_many :assets
+  has_many :items
 end
