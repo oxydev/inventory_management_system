@@ -78,3 +78,6 @@ gem 'bootstrap'
 
 # Jquery Gem for Bootstrap 
 gem 'jquery-rails'
+
+# Cocoon Gem for nested Form
+gem "cocoon"

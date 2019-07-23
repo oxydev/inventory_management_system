@@ -6,7 +6,7 @@ module HomeHelper
       links += link_to "Users", "#"
       links += link_to "Catagories", categories_path
     end
-    links += link_to "Asset", "#"
+    links += link_to "Asset", items_path
     links.html_safe
   end
 end

@@ -6,4 +6,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   acts_as_paranoid
+
+  has_many :items
 end

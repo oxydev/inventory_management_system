@@ -1,0 +1,29 @@
+<h1>Index</h1>
+<%= current_user.user_name %>
+
+<table>
+    <tr class="header">
+      <th> # </th>
+      <th> Asset Name </th>
+      <th> Date of Purchase </th>
+      <th> Asset Code </th>
+      <th> Action </th>
+    </tr>
+    <% @items.each do |item| %>
+    <tr>
+      <td> <%= item.id %> </td>
+      <td> <%= item.asset %> </td>
+      <td> <%= item.date_of_purchase %> </td>
+      <td> <%= item.asset_code %> </td>
+      <td>
+        <%= link_to("Show", item_path(item))%>
+        <%= link_to("Edit", edit_item_path(item)) %>
+        <%= link_to("Delete", delete_item_path(item)) %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+  <br>
+  <%= link_to("Add ", new_item_path)%> <br>
+
+  <%= link_to("Back", authenticated_root_path)%>

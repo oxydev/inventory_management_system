@@ -1,0 +1,17 @@
+<%= link_to("<< Back to List", items_path, :class => 'back-link') %>
+
+
+  <h2>Delete Asset</h2>
+
+  <%= form_for(@item, :method => 'delete') do |f| %>
+
+    <p>Are you sure you want to delete this asset?</p>
+
+    <p class="reference-name"><%= f.object.asset %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Project") %>
+    </div>
+    
+  <% end %>
+  </div>
