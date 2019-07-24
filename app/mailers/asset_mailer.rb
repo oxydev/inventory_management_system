@@ -6,4 +6,9 @@ class AssetMailer < ApplicationMailer
     mail(to: admin.email, subject: 'Request for Asset Purchase.')
   end
 
+  def purchase_reqest_reply(purchase)
+    @purchase = purchase
+    @user = @purchase.user
+    mail(to: @user.email, subject: 'Respone for the Request of Asset Purchase.')
+  end
 end

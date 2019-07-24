@@ -1,0 +1,10 @@
+<p>Your request to purchase the <%= @purchase.asset%> 
+  <%if @purchase.status == "rejected"%>
+    has been Reject.<br>
+    We didn't see it neccessary for the purchase.Sorry for Inconvinence.
+  <%else%>
+    has been accepted.<br>
+    The requested asset will be available in the inventory in a week.<br>
+    Thank you for your patience
+  <%end%>
+</p>

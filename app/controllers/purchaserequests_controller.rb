@@ -43,14 +43,16 @@ class PurchaserequestsController < ApplicationController
   def approve
     @purchase = Purchaserequest.find(params[:id])
     @purchase.status = 1
-    @purchase.save
+    @purchase.save    
+    AssetMailer.purchase_reqest_reply(@purchase).deliver!
     redirect_to(user_purchaserequests_path(current_user))
   end
-
+  
   def decline
     @purchase = Purchaserequest.find(params[:id])
     @purchase.status = 2
     @purchase.save
+    AssetMailer.purchase_reqest_reply(@purchase).deliver!
     redirect_to(user_purchaserequests_path(current_user))
   end
   

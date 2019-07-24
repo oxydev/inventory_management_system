@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'items/index'
-  get 'items/new'
-  get 'items/edit'
-  get 'items/delete'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html  
   devise_for :users, controllers: { invitations: 'users/invitations' }
 
