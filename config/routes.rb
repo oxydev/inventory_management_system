@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     root to: "home#dashboard", as: :authenticated_root
   end
 
-  resources :users 
+  resources :users do
+    resources :purchaserequests, :path => "request"
+  end
   
   resources :categories do
     member do
