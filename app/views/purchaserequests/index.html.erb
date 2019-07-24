@@ -1,0 +1,30 @@
+<h3>Index</h3>
+
+<table class="table">
+    <tr class="header">
+      <th> # </th>
+      <th> Asset Name </th>
+      <th> Status </th>
+      <%if @user.admin%>
+        <th> Employee </th>
+      <%end%>
+      <th> Action </th>
+    </tr>
+    <% @purchase.each do |purchase| %>
+      <% if @user.admin || @user.id === purchase.user_id%>
+        <tr>
+          <td> <%= purchase.id%> </td>
+          <td> <%= purchase.asset %> </td>
+          <td> <%= purchase.status %> </td>
+          <%if @user.admin%>
+          <td> <%= purchase.user.user_name %> </td>
+          <%end%>
+          <td>
+            <%= link_to("Details", user_purchaserequest_path(@user,purchase))%>
+          </td>
+        </tr>
+      <%end%>
+    <% end %>
+  </table>
+
+  <%= link_to("Back", authenticated_root_path)%>

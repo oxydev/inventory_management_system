@@ -1,8 +1,12 @@
 class PurchaserequestsController < ApplicationController
+  
   def index
+    @user = current_user
+    @purchase = Purchaserequest.all
   end
 
   def show
+    @purchase = Purchaserequest.find(params[:id])
   end
   
   def new

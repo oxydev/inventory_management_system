@@ -1,0 +1,26 @@
+<h2>show</h2>
+<table>
+  <tr>
+    <td> Asser Name </td>
+    <td> <%= @purchase.asset%></td>
+  <tr>
+    <td> Requested By: </td>
+    <td> <%= @purchase.user.user_name%> </td>
+  <tr>
+  <tr>
+    <td> Price: </td>
+    <td> <%= @purchase.price%> </td>
+  <tr>
+  <tr>
+    <td> Link: </td>
+    <td> <%= @purchase.link%> </td>
+  <tr>
+  <tr>
+    <td> Description </td>
+    <td> <%= @purchase.description%> </td>
+  <tr>
+</table>
+<br>
+<%= admin_user%>
+<br>
+<%= link_to("Back", user_purchaserequests_path(current_user))%>

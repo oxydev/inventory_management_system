@@ -7,6 +7,7 @@ module HomeHelper
       links += link_to "Catagories", categories_path
     end
     links += link_to "Asset", items_path
+    links += link_to "Asset Requests", user_purchaserequests_path(current_user)
     links.html_safe
   end
 end
