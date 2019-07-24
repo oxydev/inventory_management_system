@@ -17,7 +17,7 @@
           <td> <%= purchase.asset %> </td>
           <td> <%= purchase.status %> </td>
           <%if @user.admin%>
-          <td> <%= purchase.user.user_name %> </td>
+            <td> <%= purchase.user.user_name %> </td>
           <%end%>
           <td>
             <%= link_to("Details", user_purchaserequest_path(@user,purchase))%>

@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :purchaserequests, :path => "request"
+    resources :purchaserequests, :path => "request" do
+      get :delete
+    end
+    get '/purchaserequests/:id/approve', to: 'purchaserequests#approve', as: 'approve'
+    get '/purchaserequests/:id/decline', to: 'purchaserequests#decline', as: 'decline'
   end
   
   resources :categories do

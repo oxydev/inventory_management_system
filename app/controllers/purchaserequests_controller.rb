@@ -40,6 +40,20 @@ class PurchaserequestsController < ApplicationController
   def destroy
   end
 
+  def approve
+    @purchase = Purchaserequest.find(params[:id])
+    @purchase.status = 1
+    @purchase.save
+    redirect_to(user_purchaserequests_path(current_user))
+  end
+
+  def decline
+    @purchase = Purchaserequest.find(params[:id])
+    @purchase.status = 2
+    @purchase.save
+    redirect_to(user_purchaserequests_path(current_user))
+  end
+  
   private
 
   def purchase_paramas
