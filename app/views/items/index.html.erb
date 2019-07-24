@@ -16,9 +16,7 @@
       <td> <%= item.date_of_purchase %> </td>
       <td> <%= item.asset_code %> </td>
       <td>
-        <%= link_to("Show", item_path(item))%>
-        <%= link_to("Edit", edit_item_path(item)) %>
-        <%= link_to("Delete", delete_item_path(item)) %>
+         <%= action_option(item)%>
       </td>
     </tr>
     <% end %>

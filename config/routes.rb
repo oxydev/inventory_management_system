@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   authenticated :user do
     root to: "home#dashboard", as: :authenticated_root
   end
-  
+
+  resources :users 
   
   resources :categories do
     member do

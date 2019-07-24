@@ -1,0 +1,22 @@
+<h1>Edit User</h1>
+
+<%=link_to "Get back", users_path %>
+
+<%= form_for(@user) do |f| %>
+  <table>
+    <tr>
+      <th> User Name </th>
+      <td> <%= f.text_field(:user_name) %> </td>
+    </tr>
+    <tr>
+      <th> Email </th>
+      <td> <%= f.text_field(:email) %> </td>
+    </tr>
+    
+  </table>
+
+  <div class="form-buttons">
+    <%= f.submit("Edit") %>
+  </div>
+<% end %>
+
