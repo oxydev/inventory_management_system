@@ -16,7 +16,12 @@
       <th> Asset Code </th>
       <td> <%= f.text_field(:asset_code) %> </td>
     </tr>
-    
+    <tr>
+      <th>Categories</th>
+      <td>
+        <%=f.collection_select(:category_id, Category.all, :id, :category, {prompt: "UnSelected"} ) %>
+      </td>
+    <tr>
   </table>
 
   <div class="form-buttons">
