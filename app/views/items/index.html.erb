@@ -6,7 +6,7 @@
       <th> # </th>
       <th> Asset Name </th>
       <th> Date of Purchase </th>
-      <th> Asset Code </th>
+      <th> Category </th>
       <th> Action </th>
     </tr>
     <% @items.each do |item| %>
@@ -14,7 +14,7 @@
       <td> <%= item.id %> </td>
       <td> <%= item.asset %> </td>
       <td> <%= item.date_of_purchase %> </td>
-      <td> <%= item.asset_code %> </td>
+      <td> <%= item.category.category %> </td>
       <td>
          <%= action_option(item)%>
       </td>
@@ -22,6 +22,7 @@
     <% end %>
   </table>
   <br>
-  <%= link_to("Add ", new_item_path)%> <br>
+
+  <%= add_purchase %> <br>
 
   <%= link_to("Back", authenticated_root_path)%>

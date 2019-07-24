@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.asset_code = get_asset_code(@item)
+    binding.pry
     if @item.save
       redirect_to items_path
     else
@@ -49,7 +50,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:asset, :date_of_purchase)
+    params.require(:item).permit(:asset, :date_of_purchase, :category_id)
   end
 
   def get_asset_code(item)

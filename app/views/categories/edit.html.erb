@@ -8,10 +8,18 @@
       <th>Name</th>
       <td><%= f.text_field(:category) %></td>
     </tr>
+
+    <tr>
+      <th>asset</th>
+    <td>
+      <%=f.collection_select(:item, Item.all, :id, :asset,{}, {:prompt => true, :multiple=>true }) %>
+    </td>
+  </tr>
   </table>
+  
 
   <div class="form-buttons">
-    <%= f.submit("Create Project") %>
+    <%= f.submit("Edit") %>
   </div>
   <% end %>
 </div>

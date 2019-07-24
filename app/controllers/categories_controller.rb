@@ -16,6 +16,9 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
+    item = Item.where(id: params[:category][:item])
+    @category.items << item 
+
     if @category.save
       redirect_to(categories_path)
     else
@@ -29,6 +32,9 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
+    
+    item = Item.where(id: params[:category][:item])
+    @category.items << item 
 
     if @category.update_attributes(category_params)
     redirect_to(category_path(@category))
@@ -50,7 +56,7 @@ class CategoriesController < ApplicationController
   private  
   
   def category_params
-    params.require(:category).permit(:category)
+    params.require(:category).permit(:category, :item)
   end
 
   def admin

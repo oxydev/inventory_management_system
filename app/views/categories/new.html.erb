@@ -1,6 +1,6 @@
 <div class = "container">
   <h1>Category add</h1>
-  <%=link_to "Get back","#"%>
+  <%=link_to "Get back", categories_path%>
   <%= form_for(@category) do |f| %>
 
   <table>
@@ -8,10 +8,17 @@
       <th>Name</th>
       <td><%= f.text_field(:category) %></td>
     </tr>
+
+  <tr>
+    <th>asset</th>
+    <td>
+      <%=f.collection_select(:item, Item.all, :id, :asset,{}, {:prompt => true, :multiple=>true }) %>
+    </td>
+  </tr>
   </table>
 
   <div class="form-buttons">
-    <%= f.submit("Create Project") %>
+    <%= f.submit("Add") %>
   </div>
   <% end %>
 </div>
