@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     end
     get '/purchaserequests/:id/approve', to: 'purchaserequests#approve', as: 'approve'
     get '/purchaserequests/:id/decline', to: 'purchaserequests#decline', as: 'decline'
+    get '/items/:id/use_approve', to: 'items#use_approve', as: 'use_approve'
+    get '/items/:id/use_decline', to: 'items#use_decline', as: 'use_decline'
   end
   
   resources :categories do
@@ -26,8 +28,6 @@ Rails.application.routes.draw do
     end
   end
   get '/items/:id/use_request', to: 'items#use_request', as: 'use_request'
-  get '/items/:id/use_approve', to: 'items#use_approve', as: 'use_approve'
-  get '/items/:id/use_decline', to: 'items#use_decline', as: 'use_decline'
 
   root to: "home#index"
 

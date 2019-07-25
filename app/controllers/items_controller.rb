@@ -21,7 +21,11 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-
+    if @item.user_id!=nil
+      @user = User.find(@item.user_id).user_name
+    else
+      @user = "Not in Use"
+    end
   end
 
   def edit
@@ -55,10 +59,27 @@ class ItemsController < ApplicationController
     AssetMailer.use_request(@item,current_user).deliver!
     redirect_to(items_path)
   end
+  
+  def use_approve
+    @item = Item.find(params[:id])
+    @user = User.find(params[:user_id])
+    @item.user_id = @user.id
+    @item.users.delete(@user)
+    @item.save
+    redirect_to(items_path)
+  end
 
+  def use_decline
+    @item = Item.find(params[:id])
+    @user = User.find(params[:user_id])
+
+    @item.users.delete(@user)
+    @item.save
+    redirect_to(items_path)
+  end
 
   private
-  
+
   def item_params
     params.require(:item).permit(:asset, :date_of_purchase, :category_id)
   end
