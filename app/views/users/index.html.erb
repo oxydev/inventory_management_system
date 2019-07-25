@@ -1,30 +1,35 @@
-<h3>Index</h3>
-
+<h2>Employes</h2>
+<br>
 <table class="table">
-    <tr class="header">
-      <th> # </th>
-      <th> User Name </th>
-      <th> Email </th>
-      <th> Invitation Status </th>
-      <th> Action </th>
-    </tr>
-    <% @users.each do |user| %>
-      <% if !user.admin%>
-        <tr>
-          <td> <%= user.id-1 %> </td>
-          <td> <%= user.user_name %> </td>
-          <td> <%= user.email %> </td>
-          <td> <%=user.invitation_accepted_at ? 'Accepted' : 'Pending' %> </td>
-          <td>
-            <%= link_to("Show", user_path(user))%>
-            <%= link_to("Edit", edit_user_path(user)) %>
-            <%= link_to("Delete", "#") %>
-          </td>
-        </tr>
-      <%end%>
-    <% end %>
-  </table>
-  <br>
-  <%= link_to("Send Invitation", new_user_invitation_path, :class => 'btn btn-primary' )%> <br>
-  <br>
-  <%= link_to("Back", authenticated_root_path, :class => 'btn btn-secondary')%>
+  <tr class="thead-light">
+    <th> # </th>
+    <th> User Name </th>
+    <th> Email </th>
+    <th> Invitation Status </th>
+    <th> Action </th>
+  </tr>
+  <% @users.each do |user| %>
+    <% if !user.admin%>
+      <tr>
+        <td> <%= user.id-1 %> </td>
+        <td> <%= user.user_name %> </td>
+        <td> <%= user.email %> </td>
+        <td> <%=user.invitation_accepted_at ? 'Accepted' : 'Pending' %> </td>
+        <td>
+          <%= link_to("Show", user_path(user))%><span>&nbsp;&nbsp;&nbsp;</span>
+          <%= link_to("Edit", edit_user_path(user)) %>
+        </td>
+      </tr>
+    <%end%>
+  <% end %>
+</table>
+  
+<br>
+<div class= "row justify-content-between">
+  <div class = "col-2">
+    <%= link_to("Back", authenticated_root_path, :class => 'btn btn-secondary')%>
+  </div>
+  <div class = "col-4">
+    <%= link_to("Send Invitation", new_user_invitation_path, :class => 'btn btn-primary' ) %>
+  </div>
+</div>

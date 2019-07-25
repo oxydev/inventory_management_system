@@ -1,42 +1,48 @@
-<h1>SHOW</h1>
-
-<table class="table">
-  <tr>
-    <td> Asset ID </td>
-    <td> <%=@item.id%> </td>
-  <tr>
-    <td>Asset</td>
-    <td> <%=@item.asset%> </td>
-  </tr>  
-  <tr>
-    <td> Asset Code </td>
-    <td> <%=@item.asset_code%> </td>
-  </tr>  
-
-  <tr>
-    <td> Current User</td>
-      <td><%=@user%> </td>
-  <tr>
-</table>
-<br>
-<%if current_user.admin%>
-
-<h4>Following User has Requested the use of the asset</h4>
-  <table class="table">
-    <tr class="header">
-      <th> # </th>
-      <th> User </th>
-      <th> Action </th>
-    </tr>
-    <% @item.users.each do |user| %>
+<div id="main">
+  <h2>Item Details </h2>
+  <br>
+  <table class="table" style="width:auto; margin:auto; text-align: left;">
     <tr>
-      <td> <%= user.id %> </td>
-      <td> <%= user.user_name %> </td>
-      <td>
-        <%= link_to("Approve", user_use_approve_path(user,@item), :class => "btn btn-primary")%>
-        <%= link_to("Reject", user_use_decline_path(user,@item), :class => "btn btn-danger")%>
-      </td>
-    </tr>
-    <% end %>
+      <td> Asset ID: </td>
+      <td> <%=@item.id%> </td>
+    <tr>
+      <td>Asset:</td>
+      <td> <%=@item.asset%> </td>
+    </tr>  
+    <tr>
+      <td> Asset Code: </td>
+      <td> <%=@item.asset_code%> </td>
+    </tr>  
+
+    <tr>
+      <td> Current User: </td>
+        <td><%=@user%> </td>
+    <tr>
   </table>
-<%end%>
+
+  <%= link_to("Back", items_path, :class=>"btn btn-secondary")%>
+  <br>
+  
+  <%if current_user.admin%>
+    <br>
+    <h5>Following Users has requested for the use of this asset</h5>
+    <br>
+    <table class="table">
+      <tr class="header">
+        <th> # </th>
+        <th> User </th>
+        <th> Action </th>
+      </tr>
+      <% @item.users.each do |user| %>
+      <tr>
+        <td> <%= user.id %> </td>
+        <td> <%= user.user_name %> </td>
+        <td>
+          <%= link_to("Approve", user_use_approve_path(user,@item), :class => "btn btn-primary")%>
+          <%= link_to("Reject", user_use_decline_path(user,@item), :class => "btn btn-danger")%>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  <%end%>
+</div>

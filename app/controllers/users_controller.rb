@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
 
+  before_action :authenticate_user!
+  
   def index
+    if !current_user.admin
+      redirect_to(user_path(current_user.id))
+    end
     @users = User.all
   end
 
@@ -14,7 +19,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
     if @user.update_attributes(user_params)
       redirect_to(user_path(@user))
     else

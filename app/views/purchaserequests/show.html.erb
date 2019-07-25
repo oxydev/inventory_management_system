@@ -1,5 +1,6 @@
-<h2>show</h2>
-<table>
+<h2>Details</h2>
+<br>
+<table class="table" style="width:auto; margin:auto; text-align: left;">
   <tr>
     <td> Asser Name </td>
     <td> <%= @purchase.asset%></td>
@@ -22,5 +23,5 @@
 </table>
 <br>
 <%= admin_user(@purchase)%>
-<br>
-<%= link_to("Back", user_purchaserequests_path(current_user))%>
+<br><br>
+<%= link_to("Back", user_purchaserequests_path(current_user), :class => "btn btn-secondary")%>

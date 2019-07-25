@@ -1,22 +1,21 @@
 <h1>Edit User</h1>
-
-<%=link_to "Get back", users_path %>
-
+<br>
 <%= form_for(@user) do |f| %>
-  <table>
+  <table style= "margin: auto;text-align:left;">
     <tr>
-      <th> User Name </th>
+      <th> User Name: </th>
       <td> <%= f.text_field(:user_name) %> </td>
     </tr>
+   
     <tr>
-      <th> Email </th>
+      <th> Email: </th>
       <td> <%= f.text_field(:email) %> </td>
     </tr>
-    
   </table>
-
-  <div class="form-buttons">
+  <br>
+  <div>
     <%= f.submit("Edit") %>
   </div>
 <% end %>
-
+<br>
+<%=link_to "Get back", users_path %>

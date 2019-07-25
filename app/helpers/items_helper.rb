@@ -7,7 +7,9 @@ module ItemsHelper
     links = ""
     if(current_user.admin)
       links += link_to("Show", item_path(item))
+      links += "<span>&nbsp;&nbsp;&nbsp;</span>"
       links += link_to("Edit", edit_item_path(item))
+      links += "<span>&nbsp;&nbsp;&nbsp;</span>"
       links += link_to("Delete", delete_item_path(item))
     else
       links += link_to("Use Request", use_request_path(item))
@@ -19,10 +21,19 @@ module ItemsHelper
     # <%= link_to("Add ", new_item_path) <br> %>
     links = ""
     if(current_user.admin)
-      links += link_to("Add ", new_item_path)
+      links += link_to("Add ", new_item_path, :class => "btn btn-primary")
     else
-      links += link_to("Purchase Request", new_user_purchaserequest_path(current_user))
+      links += link_to("Purchase Request", new_user_purchaserequest_path(current_user), :class => "btn btn-primary")
     end
     links.html_safe
+  end
+
+  def get_asset_user(item)
+    if item.user_id == nil
+      user = "Not in Use"
+    else
+      user = User.find(item.user_id).user_name
+    end
+    user
   end
 end
