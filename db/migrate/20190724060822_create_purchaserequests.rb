@@ -6,6 +6,7 @@ class CreatePurchaserequests < ActiveRecord::Migration[5.2]
       t.text :link
       t.text :description
       t.integer :user_id
+      t.integer :status
       t.timestamps
     end
     add_index("purchaserequests", "user_id")

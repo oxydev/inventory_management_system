@@ -21,7 +21,7 @@ module ItemsHelper
     if(current_user.admin)
       links += link_to("Add ", new_item_path)
     else
-      links += link_to("Purchase Request", "#")
+      links += link_to("Purchase Request", new_user_purchaserequest_path(current_user))
     end
     links.html_safe
   end

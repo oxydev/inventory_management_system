@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_060822) do
     t.text "link"
     t.text "description"
     t.integer "user_id"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_purchaserequests_on_user_id"

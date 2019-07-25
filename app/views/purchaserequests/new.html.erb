@@ -1,0 +1,29 @@
+<h1> Purchase Request </h1>
+
+<%=link_to "Get back", "#" %>
+
+<%= form_for([@user, @purchase]) do |f| %>
+  <table>
+    <tr>
+      <th> Asset Name </th>
+      <td> <%= f.text_field(:asset) %> </td>
+    </tr>
+    <tr>
+      <th> Price </th>
+      <td> <%= f.text_field(:price) %> </td>
+    </tr>
+    <tr>
+      <th> Link </th>
+      <td> <%= f.text_field(:link) %> </td>
+    </tr>
+    <tr>
+    <th> Description </th>
+    <td> <%= f.text_field(:description) %> </td>
+  </tr>
+  </table>
+
+  <div class="form-buttons">
+    <%= f.submit("Request") %>
+  </div>
+<% end %>
+

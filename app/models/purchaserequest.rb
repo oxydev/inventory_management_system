@@ -1,3 +1,6 @@
 class Purchaserequest < ApplicationRecord
-  belongs_to :user
+  
+  enum status: [ :pending, :accepted, :rejected ]
+
+  belongs_to :user , {:optional => true}
 end
