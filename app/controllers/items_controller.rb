@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.asset_code = get_asset_code(@item)
-    binding.pry
     if @item.save
       redirect_to items_path
     else
@@ -67,6 +66,7 @@ class ItemsController < ApplicationController
   def use_approve
     @item = Item.find(params[:id])
     @user = User.find(params[:user_id])
+    AssetMailer.use_response(@item, @user, 1).deliver!
     @item.user_id = @user.id
     @item.users.delete(@user)
     @item.save
@@ -77,10 +77,11 @@ class ItemsController < ApplicationController
     
     redirect_to(items_path)
   end
-
+  
   def use_decline
     @item = Item.find(params[:id])
     @user = User.find(params[:user_id])
+    AssetMailer.use_response(@item, @user, 0).deliver!
 
     @item.users.delete(@user)
     @item.save

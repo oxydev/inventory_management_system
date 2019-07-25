@@ -19,7 +19,12 @@ class AssetMailer < ApplicationMailer
     mail(to: admin.email, subject: 'Request for Use of Asset.')
   end
 
-  def use_response
+  def use_response(item, user, responce)
+    binding.pry
+    @item = item
+    @user = user
+    @responce = responce
+    mail(to: @user.email, subject: 'Response for the Use of the Asset.')
   end
   
 end
