@@ -81,3 +81,6 @@ gem 'jquery-rails'
 
 # Cocoon Gem for nested Form
 gem "cocoon"
+
+# Ransack gem for search 
+gem 'ransack', github: 'activerecord-hackery/ransack'

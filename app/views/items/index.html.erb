@@ -1,8 +1,13 @@
 <h1>Index</h1>
 <%= current_user.user_name %>
 
+<%= search_form_for @q do |f| %>
+  <%= f.text_field :asset_or_asset_code_or_date_of_purchase_cont, :placeholder => 'Name, Code or Purchase Date' %>
+  <%= f.submit %>
+<% end %>
 <table>
     <tr class="header">
+
       <th> # </th>
       <th> Asset Name </th>
       <th> Date of Purchase </th>
