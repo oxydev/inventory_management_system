@@ -67,6 +67,10 @@ class ItemsController < ApplicationController
     @item.user_id = @user.id
     @item.users.delete(@user)
     @item.save
+    @use_history = UseHistory.new
+    @use_history.user = @user.user_name
+    @use_history.asset = @item.asset
+    @use_history.save
     redirect_to(items_path)
   end
 
