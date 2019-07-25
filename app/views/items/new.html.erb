@@ -1,9 +1,7 @@
-<h1>Asset add</h1>
-
-<%=link_to "Get back", items_path %>
-
+<h1>Add Asset</h1>
+<br>
 <%= form_for(@item) do |f| %>
-  <table>
+  <table style= "margin: auto;text-align:left;">
     <tr>
       <th> Asset Name </th>
       <td> <%= f.text_field(:asset) %> </td>
@@ -17,15 +15,21 @@
       <td> <%= f.text_field(:asset_code) %> </td>
     </tr>
     <tr>
-    <th>Categories</th>
-    <td>
-      <%=f.collection_select(:category_id, Category.all, :id, :category, {prompt: "UnSelected"} ) %>
-    </td>
-  </tr>
+      <th>Categories</th>
+      <td>
+        <%=f.collection_select(:category_id, Category.all, :id, :category, {prompt: "UnSelected"} ) %>
+      </td>
+    <tr>
   </table>
-
-  <div class="form-buttons">
-    <%= f.submit("Add") %>
+  <br>
+  <div class= "row justify-content-center">
+    <div class = "col-2">
+      <%= f.submit("Add") %>
+    </div> 
+    <div class = "col-2">
+      <%=link_to "Back", items_path, :class => "btn btn-secondary" %>
+    </div>
   </div>
 <% end %>
+<br>
 

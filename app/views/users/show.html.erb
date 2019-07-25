@@ -1,13 +1,21 @@
+<div id="main">
 <h2>User Profile</h2>
-
-<table>
+<br>
+<table class="table" style="width:auto; margin:auto; text-align: left;">
   <tr>
-    <td> User Name </td>
+    <td> User Name: </td>
     <td> <%= @user.user_name%></td>
   <tr>
   <tr>
-    <td> Email </td>
+    <td> Email: </td>
     <td> <%= @user.email%> </td>
   <tr>
-  
+  <tr>
+    <td> Status: </td>
+    <td> <%=@user.invitation_accepted_at ? 'Accepted' : 'Pending'%> </td>
+  <tr>
 </table>
+<br>
+<%= link_to "Back", users_path, :class => "btn btn-secondary" %>
+
+<div>

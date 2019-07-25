@@ -1,13 +1,19 @@
-<h1>Index</h1>
-<%= current_user.user_name %>
-
+<h1>Assets</h1>
+<br>
 <%= search_form_for @q do |f| %>
-  <%= f.text_field :asset_or_asset_code_or_date_of_purchase_cont, :placeholder => 'Name, Code or Purchase Date' %>
-  <%= f.submit %>
+  <div class="form-row">
+    <div class="col">
+      <%= f.text_field :asset_or_asset_code_or_date_of_purchase_cont, :placeholder => 'Name, Code or Purchase Date', :class => "form-control" %>
+    </div>
+    <div class="col-auto">
+      <%= f.submit %>
+    </div>
+  </div>
 <% end %>
-<table>
-    <tr class="header">
-
+<br>
+<br>
+<table class="table">
+    <tr class="thead-light">
       <th> # </th>
       <th> Asset Name </th>
       <th> Date of Purchase </th>
@@ -19,15 +25,23 @@
       <td> <%= item.id %> </td>
       <td> <%= item.asset %> </td>
       <td> <%= item.date_of_purchase %> </td>
-      <td> <%= item.category.category %> </td>
+      <%if item.category == nil%>
+        <td> <%= "Uncategoried" %> </td>
+      <%else%>
+        <td> <%= item.category.category %> </td>
+      <%end%>
       <td>
          <%= action_option(item)%>
       </td>
     </tr>
     <% end %>
-  </table>
-  <br>
+</table>
+<br>
 
-  <%= add_purchase %> <br>
-
-  <%= link_to("Back", authenticated_root_path)%>
+<div class= "row justify-content-between">
+  <div class = "col-3">
+    <%= link_to("Back", authenticated_root_path, :class => "btn btn-secondary")%>
+  </div> 
+<div class = "col-4">
+  <%= add_purchase %> 
+</div>
