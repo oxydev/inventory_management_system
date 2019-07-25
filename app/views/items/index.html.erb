@@ -16,20 +16,20 @@
     <tr class="thead-light">
       <th> # </th>
       <th> Asset Name </th>
-      <th> Date of Purchase </th>
       <th> Category </th>
+      <th> Currently used by </th>
       <th> Action </th>
     </tr>
     <% @items.each do |item| %>
     <tr>
       <td> <%= item.id %> </td>
       <td> <%= item.asset %> </td>
-      <td> <%= item.date_of_purchase %> </td>
       <%if item.category == nil%>
         <td> <%= "Uncategoried" %> </td>
       <%else%>
         <td> <%= item.category.category %> </td>
       <%end%>
+      <td> <%= get_asset_user(item) %> </td>
       <td>
          <%= action_option(item)%>
       </td>

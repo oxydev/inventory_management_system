@@ -1,16 +1,21 @@
-<h1>Show </h1>
-
-<%=link_to "Get back", categories_path%>
-<h1>Show Detail</h1>
-
-  <table class= "table">
+<h2>Show Detail</h2>
+<br>
+  <table class="table" style="width:auto; margin:auto; text-align: left;">
     <tr>
-      <td>Category ID </td>
+      <td>Category ID: </td>
       <td><%=@category.id%></td>
-    <tr>
-      <td>Name</td>
+    <tr> 
+      <td>Name: </td>
       <td><%=@category.category%></td>
     </tr>  
+    <tr>
+      <td>Assets: </td>
+      <td>
+        <%@category.items.each do |item|%>
+        <%= item.asset %> <br>
+        <%end%>
+      </td>
+    </tr>
   </table>
-
+<%=link_to "Back", categories_path , :class=> "btn btn-secondary"%>
 </div>
