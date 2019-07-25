@@ -21,7 +21,10 @@ Rails.application.routes.draw do
       get :delete
     end
   end
-  
+
+  resources :use_histories
+  resources :use_request_histories
+
   resources :items do
     member do
       get :delete

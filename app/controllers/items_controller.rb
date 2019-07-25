@@ -43,7 +43,6 @@ class ItemsController < ApplicationController
     end
   end
 
-
   def delete
     @item = Item.find(params[:id])
   end
@@ -57,6 +56,10 @@ class ItemsController < ApplicationController
     users << current_user
     @item.users = users.uniq
     @item.save
+    @use_request = UseRequestHistory.new
+    @use_request.user = current_user.user_name
+    @use_request.asset = @item.asset
+    @use_request.save
     AssetMailer.use_request(@item,current_user).deliver!
     redirect_to(items_path)
   end
@@ -67,6 +70,11 @@ class ItemsController < ApplicationController
     @item.user_id = @user.id
     @item.users.delete(@user)
     @item.save
+    @use_history = UseHistory.new
+    @use_history.user = @user.user_name
+    @use_history.asset = @item.asset
+    @use_history.save
+    
     redirect_to(items_path)
   end
 

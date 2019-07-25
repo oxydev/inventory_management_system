@@ -1,0 +1,25 @@
+<h1>Use Request History</h1>
+
+<%= search_form_for @q do |f| %>
+  <%= f.text_field :user_or_asset_cont, :placeholder => 'Employee or Asset name' %>
+  <%= f.submit %>
+<% end %>
+<table>
+    <tr class="header">
+      <th> # </th>
+      <th> Employee </th>
+      <th> Asset Name </th>
+      <th> Date of Use Request </th>
+    </tr>
+    <% @uses.each do |use| %>
+    <tr>
+      <td> <%= use.id %> </td>
+      <td> <%= use.user %> </td>
+      <td> <%= use.asset %> </td>
+      <td> <%= use.created_at %> </td>
+    </tr>
+    <% end %>
+  </table>
+  <br>
+
+  <%= link_to("Back", authenticated_root_path)%>

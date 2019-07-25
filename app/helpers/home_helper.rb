@@ -5,6 +5,7 @@ module HomeHelper
       links += link_to "Invite User", new_user_invitation_path
       links += link_to "Users", users_path
       links += link_to "Catagories", categories_path
+      links += link_to "Use History", use_histories_path
     end
     links += link_to "Asset", items_path
     links += link_to "Asset Requests", user_purchaserequests_path(current_user)
