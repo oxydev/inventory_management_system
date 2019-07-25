@@ -25,7 +25,10 @@ Rails.application.routes.draw do
       get :delete
     end
   end
-  
+  get '/items/:id/use_request', to: 'items#use_request', as: 'use_request'
+  get '/items/:id/use_approve', to: 'items#use_approve', as: 'use_approve'
+  get '/items/:id/use_decline', to: 'items#use_decline', as: 'use_decline'
+
   root to: "home#index"
 
 end

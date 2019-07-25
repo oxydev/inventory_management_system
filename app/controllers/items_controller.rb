@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+
   end
 
   def edit
@@ -41,13 +42,23 @@ class ItemsController < ApplicationController
   def delete
     @item = Item.find(params[:id])
   end
-
+  
   def destroy
+  end
+  
+  def use_request
+    @item = Item.find(params[:id])
+    users = @item.users
+    users << current_user
+    @item.users = users.uniq
+    @item.save
+    AssetMailer.use_request(@item,current_user).deliver!
+    redirect_to(items_path)
   end
 
 
   private
-
+  
   def item_params
     params.require(:item).permit(:asset, :date_of_purchase, :category_id)
   end

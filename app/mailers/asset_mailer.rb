@@ -12,7 +12,11 @@ class AssetMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Respone for the Request of Asset Purchase.')
   end
 
-  def use_request
+  def use_request(item,user)
+    @item = item
+    @user = user
+    admin = User.find(admin=true)
+    mail(to: admin.email, subject: 'Request for Use of Asset.')
   end
 
   def use_response

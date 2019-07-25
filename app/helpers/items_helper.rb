@@ -10,7 +10,7 @@ module ItemsHelper
       links += link_to("Edit", edit_item_path(item))
       links += link_to("Delete", delete_item_path(item))
     else
-      links += link_to("Use Request", "#")
+      links += link_to("Use Request", use_request_path(item))
     end
     links.html_safe
   end
